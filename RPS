@@ -1,1 +1,24 @@
-console.log("hello")
+
+<script>
+
+function numberGen() {
+    return (Math.floor(Math.random() * 3))
+}
+
+
+function playGen(num) {
+    if (num == 0){
+        return "rock"
+    } else if  (num == 1) {
+        return "paper"
+    }
+    else return ("scissors")
+}
+
+
+console.log(playGen(numberGen()))
+
+console.log("type something");
+let x = prompt();
+console.log(playGen(x));
+</script>
