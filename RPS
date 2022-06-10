@@ -27,13 +27,16 @@ function check(pNum, cNum){
     }
 }
 
-console.log(check(2,2))
-console.log(check(2,1))
-console.log(check(2,0))
-console.log(check(1,2))
-console.log(check(1,1))
-console.log(check(1,0))
-console.log(check(0,2))
-console.log(check(0,1))
-console.log(check(0,0))
+function playRound(){
+    console.log("0 for rock, 1 for paper, 2 for scissors");
+    let choice = parseInt(prompt());
+    let cpuChoice = numberGen();
+    console.log("You played " + playGen(choice))
+    console.log("CPU played " + playGen(cpuChoice));
+    console.log(check(choice, cpuChoice))
+
+}
+
+playRound()
+
 </script>
