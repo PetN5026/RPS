@@ -1,3 +1,15 @@
+ <html>
+
+<button id = "rock">rock</button>
+<button id = "scissors"> scissors</button>
+<button id = "paper">paper</button>
+<div id = "play">
+    playarea
+</div>
+<p>Score</p> <p id = "score"> 0 </p>
+ </html>
+
+
 
 <script>
 
@@ -27,16 +39,29 @@ function check(pNum, cNum){
     }
 }
 
-function playRound(){
-    console.log("0 for rock, 1 for paper, 2 for scissors");
-    let choice = parseInt(prompt());
-    let cpuChoice = numberGen();
-    console.log("You played " + playGen(choice))
-    console.log("CPU played " + playGen(cpuChoice));
-    console.log(check(choice, cpuChoice))
+function playRound(x){
 
+    let choice = x
+    let cpuChoice = numberGen();
+    playArea.innerText = "You played " + playGen(choice);
+    playArea.innerText += "\nCPU played " + playGen(cpuChoice);
+    point = check(choice,cpuChoice)
+    playArea.innerText +="\n" +point;
+    if (point == "player wins"){
+        scoreKeep.innerText = parseInt(scoreKeep.innerText) + 1;
+    }
 }
 
-playRound()
+
+
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+const playArea = document.querySelector("#play");
+const scoreKeep = document.querySelector("#score");
+
+rockBtn.addEventListener('click', () => {playRound(0)});
+paperBtn.addEventListener('click', () => {playRound(1)})
+scissorsBtn.addEventListener('click', () => {playRound(2)})
 
 </script>
